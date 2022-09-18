@@ -216,9 +216,9 @@ public class Task_4_3_7 {
                 String from = mailMessage.getFrom();
                 String to = mailMessage.getTo();
                 if (from.equals(AUSTIN_POWERS) || to.equals(AUSTIN_POWERS)) {
-                    logger.warning("Detected target mail correspondence: from " + from + " to " + to + " \"" + mailMessage.getMessage() + "\"");
+                    logger.log(Level.WARNING, "Detected target mail correspondence: from {0} to {1} \"{2}\"", new Object[] {from, to, mailMessage.getMessage()});
                 } else {
-                    logger.info("Usual correspondence: from " + from + " to " + to + "");
+                    logger.log(Level.INFO, "Usual correspondence: from {0} to {1}", new Object[] {from, to});
                 }
             }
             return sendableObject;

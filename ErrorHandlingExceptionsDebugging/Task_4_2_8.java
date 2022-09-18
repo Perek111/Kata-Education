@@ -48,6 +48,7 @@ package ErrorHandlingExceptionsDebugging;
 
 public class Task_4_2_8 {
     public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
+
         int attempt = 0;
         while (attempt < 3) {
             RobotConnection robotConnection = null;
@@ -58,18 +59,9 @@ public class Task_4_2_8 {
             } catch (RobotConnectionException rce) {
                 attempt++;
                 if (attempt == 3) {
-                    if (robotConnection != null) {
-                        robotConnection.close();
-                    }
                     throw rce;
                 }
             } catch (Throwable t) {
-                if (robotConnection != null) {
-                    try {
-                        robotConnection.close();
-                    } catch (Throwable ignored) {
-                    }
-                }
                 throw t;
             } finally {
                 if (robotConnection != null) {

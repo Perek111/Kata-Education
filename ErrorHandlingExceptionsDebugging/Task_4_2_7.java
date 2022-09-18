@@ -17,17 +17,15 @@ public class Task_4_2_7 {
         public void drive() {
             System.out.println("Машина поехала.");
         }
-
         @Override
         public void close() {
             System.out.println("Машина закрывается...");
         }
     }
-
     public static void main(String[] args) {
         try (Car c = new Car()) {
             c.drive();
-        } catch (RuntimeException re) {
+        } catch (RuntimeException ignore) {
         }
     }
 }
